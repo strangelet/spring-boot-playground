@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.net.URL;
 
 /**
- * Testing that SpringBoot app is available on localhost:8080.
+ * Testing that SpringBoot app is available on localhost.
  */
 @ActiveProfiles("test")
 @RunWith(SpringRunner.class)
@@ -39,6 +39,6 @@ public class HelloControllerIT {
     @Test
     public void getHello() throws Exception {
         ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
-        assertThat(response.getBody(), equalTo("Greetings from Spring Boot!"));
+        assertThat(response.getBody(), equalTo("Greetings from KRK-AIR Spring Boot app!"));
     }
 }

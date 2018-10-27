@@ -1,4 +1,4 @@
-package smog.entity;
+package krk.smog.entity;
 
 import org.springframework.data.annotation.Id;
 import java.time.Instant;
