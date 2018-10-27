@@ -25,7 +25,9 @@ public class AirlyApiService {
     @Value("${krk.lng}")
     private Double krkLng;
 
-    /** Calling airly API and returning current condition. */
+    /**
+     * Calling airly API and returning current condition.
+     */
     public AirQuality checkCurrentCondition() {
         String airlyUrl = String.format(airlyBaseUrl, krkLat, krkLng);
 
@@ -42,8 +44,11 @@ public class AirlyApiService {
 
         System.out.println(measurements.getBody().toString());
 
-        // TODO(alena): move this logic to Spring batch
         AveragedValues currentValues = measurements.getBody().getCurrent();
+        return convertToEntity(currentValues);
+    }
+
+    private AirQuality convertToEntity(AveragedValues currentValues) {
         AirQuality point = new AirQuality();
         point.fromDateTime = currentValues.getFromDateTime();
         point.tillDateTime = currentValues.getTillDateTime();
