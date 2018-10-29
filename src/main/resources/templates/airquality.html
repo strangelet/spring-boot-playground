@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SpringMVC + Thymeleaf + Bootstrap 4 Table Example</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <h1>Customer Table</h1>
+    <div class="row col-md-12 table-responsive">
+
+
+        <table id="customerTable" class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>fromDateTime</th>
+                <th>fromDateTime</th>
+                <th>indexName</th>
+                <th>value</th>
+                <th>level</th>
+                <th>description</th>
+                <th>advice</th>
+                <th>color</th>
+            </tr>
+            </thead>
+
+            <tbody>
+                
+            <tr th:if="${airQualityDots.empty}">          
+                <td colspan="2"> No Books Available</td>      
+            </tr>
+                    
+            <tr th:each="airQualityDot : ${airQualityDots}">
+                <td><span th:text="${airQualityDot.id}"> id </span></td>
+                <td><span th:text="${airQualityDot.fromDateTime}"> fromDateTime </span></td>
+                <td><span th:text="${airQualityDot.tillDateTime}"> tillDateTime </span></td>
+                <td><span th:text="${airQualityDot.indexName}"> indexName </span></td>
+                <td><span th:text="${airQualityDot.value}"> value </span></td>
+                <td><span th:text="${airQualityDot.level}"> level </span></td>
+                <td><span th:text="${airQualityDot.description}"> description </span></td>
+                <td><span th:text="${airQualityDot.advice}"> advice </span></td>
+                <td><span th:text="${airQualityDot.color}"> color </span></td>
+            </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+</div>
